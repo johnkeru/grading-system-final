@@ -1,0 +1,66 @@
+
+POST http://localhost:5000/users/authenticate
+Content-Type: application/json
+
+{
+    "personalEmail": "hehe@gmail.com",
+    "password": "12345"
+}
+###
+POST http://localhost:5000/users/register
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "personalEmail": "admin@gmail.com",
+    "password": "admin"
+}
+###
+POST http://localhost:5000/checkEmail
+Content-Type: application/json
+
+{
+    "email": "keru@gmail.com"
+}
+###
+GET http://localhost:3000/users/refresh
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMiIsImVtYWlsIjoia2VydXRtYW5AZ21haWwuY29tIiwicm9sZSI6InN0YW5kYXJkIiwiaWF0IjoxNjU0NjUzMDI0LCJleHAiOjE2NTUyNTc4MjR9.kABo-gLvykqDiRMgD-ETwmcQuq6BIgREnP8lhw1BZ2M
+###
+GET http://localhost:5000/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJoZWhlQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiaGVoZWhlIiwiaWF0IjoxNjU1MDM2MjExLCJleHAiOjE2NTUwMzk4MTF9.bYjXZv7v3d1tNnGYHRZArYhVMVNyhz3nkmElaMW3xtE
+
+###
+GET http://localhost:5000/getRoles
+###
+POST http://localhost:5000/addRole
+Content-Type: application/json
+
+{
+    "role_name": "heheh"
+}
+###
+DELETE http://localhost:5000/deleteRole
+Content-Type: application/json
+
+{
+    "id": 4,
+}
+
+###
+GET http://localhost:5000/role-lists
+###
+POSt http://localhost:5000/getAllUsers
+Content-Type: application/json
+
+{
+    "order": "desc",
+    "approval": true
+}
+
+### 
+POST http://localhost:5000/users/getOneUser
+Content-Type: application/json
+
+{
+    "id": 38
+}
