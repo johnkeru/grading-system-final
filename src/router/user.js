@@ -145,7 +145,7 @@ router.post('/getAllUsersApproversAscending', async (req, res) => {
     let users = null;
     const getUser = async () => {
         if(cursor){
-            return await dataSource.query(`SELECT * FROM user_auth WHERE "approverLevel" > 0 AND id > $1 ORDER BY "approverLevel" ASC LIMIT $2`, [cursor, limit_plus_one])
+            return await dataSource.query(`SELECT * FROM user_auth WHERE "approverLevel" > 0 ORDER BY "approverLevel" ASC OFFSET $1 LIMIT $2`, [cursor, limit_plus_one])
         }else{
             return await dataSource.query(`SELECT * FROM user_auth WHERE "approverLevel" > 0 ORDER BY "approverLevel" ASC LIMIT $1`, [limit_plus_one])
         }
@@ -169,7 +169,7 @@ router.post('/getAllUsersApproversDescending', async (req, res) => {
     let users = null;
     const getUser = async () => {
         if(cursor){
-            return await dataSource.query(`SELECT * FROM user_auth WHERE "approverLevel" > 0 AND id < $1 ORDER BY "approverLevel" DESC LIMIT $2`, [cursor, limit_plus_one])
+            return await dataSource.query(`SELECT * FROM user_auth WHERE "approverLevel" > 0 ORDER BY "approverLevel" DESC OFFSET $1 LIMIT $2`, [cursor, limit_plus_one])
         }else{
             return await dataSource.query(`SELECT * FROM user_auth WHERE "approverLevel" > 0 ORDER BY "approverLevel" DESC LIMIT $1`, [limit_plus_one])
         }
